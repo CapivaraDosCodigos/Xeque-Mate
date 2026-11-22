@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c44wuey6ys7tn"]
+
+[ext_resource type="Script" uid="uid://cwwhfvmt3mcne" path="res://Scenes/Enemy/enemy.gd" id="1_lwxk2"]
+[ext_resource type="Script" uid="uid://duh573wqosmss" path="res://Common/Component/health_component.gd" id="2_p6rfw"]
+[ext_resource type="Shader" uid="uid://u5bm25vhygf7" path="res://Assets/Blink.gdshader" id="3_idvf5"]
+[ext_resource type="Texture2D" uid="uid://bxjj2rxli13jt" path="res://Assets/Tilemap Dungeon/OKLab (2).png" id="4_eg7l8"]
+[ext_resource type="PackedScene" uid="uid://b2axhfsqt1yqm" path="res://Common/HitParticles/hit_particles.tscn" id="5_s7ih0"]
+[ext_resource type="Script" uid="uid://ch6i38siienyw" path="res://Common/CanvasDrawing/desenhador.gd" id="6_d0ddp"]
+
+[sub_resource type="Resource" id="Resource_g7b7a"]
+resource_local_to_scene = true
+script = ExtResource("2_p6rfw")
+metadata/_custom_type_script = "uid://duh573wqosmss"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7b7a"]
+resource_local_to_scene = true
+shader = ExtResource("3_idvf5")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[node name="Morcego" type="Node2D" unique_id=1445645633]
+script = ExtResource("1_lwxk2")
+selections = Dictionary[Vector2i, PackedVector2Array]({
+Vector2i(-3, -3): PackedVector2Array(-2, -2, -1, -1),
+Vector2i(-3, 3): PackedVector2Array(-2, 2, -1, 1),
+Vector2i(-2, -2): PackedVector2Array(-1, -1),
+Vector2i(-2, 2): PackedVector2Array(-1, 1),
+Vector2i(-1, -1): PackedVector2Array(),
+Vector2i(-1, 1): PackedVector2Array(),
+Vector2i(1, -1): PackedVector2Array(),
+Vector2i(1, 1): PackedVector2Array(),
+Vector2i(2, -2): PackedVector2Array(1, -1),
+Vector2i(2, 2): PackedVector2Array(1, 1),
+Vector2i(3, -3): PackedVector2Array(2, -2, 1, -1),
+Vector2i(3, 3): PackedVector2Array(2, 2, 1, 1)
+})
+health = SubResource("Resource_g7b7a")
+star_diagonal_mode = 0
+star_jumping_enabled = true
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1361230251]
+material = SubResource("ShaderMaterial_g7b7a")
+texture = ExtResource("4_eg7l8")
+region_enabled = true
+region_rect = Rect2(0, 176, 16, 16)
+
+[node name="HitParticles" parent="Sprite" unique_id=1395685859 instance=ExtResource("5_s7ih0")]
+
+[node name="Moves" type="Node2D" parent="." unique_id=1247536354]
+z_index = -1
+script = ExtResource("6_d0ddp")
+metadata/_custom_type_script = "uid://ch6i38siienyw"

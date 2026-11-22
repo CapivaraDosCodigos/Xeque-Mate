@@ -1,0 +1,49 @@
+[gd_resource type="Theme" format=3 uid="uid://df8cewki5vs0b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euhx6"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duleo"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rx523"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axikm"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 20
+
+[resource]
+VirtualJoystick/styles/normal_joystick = SubResource("StyleBoxFlat_euhx6")
+VirtualJoystick/styles/normal_tip = SubResource("StyleBoxFlat_duleo")
+VirtualJoystick/styles/pressed_joystick = SubResource("StyleBoxFlat_rx523")
+VirtualJoystick/styles/pressed_tip = SubResource("StyleBoxFlat_axikm")

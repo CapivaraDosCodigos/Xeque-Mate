@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c6y6r56ty0mlk"]
+
+[ext_resource type="Script" uid="uid://cwwhfvmt3mcne" path="res://Scenes/Enemy/enemy.gd" id="1_rs4v3"]
+[ext_resource type="Script" uid="uid://duh573wqosmss" path="res://Common/Component/health_component.gd" id="2_hvua5"]
+[ext_resource type="Shader" uid="uid://u5bm25vhygf7" path="res://Assets/Blink.gdshader" id="3_v6lvp"]
+[ext_resource type="Texture2D" uid="uid://bxjj2rxli13jt" path="res://Assets/Tilemap Dungeon/OKLab (2).png" id="4_yr6c5"]
+[ext_resource type="PackedScene" uid="uid://b2axhfsqt1yqm" path="res://Common/HitParticles/hit_particles.tscn" id="5_wit1p"]
+[ext_resource type="Script" uid="uid://ch6i38siienyw" path="res://Common/CanvasDrawing/desenhador.gd" id="6_8j4qm"]
+
+[sub_resource type="Resource" id="Resource_8j4qm"]
+script = ExtResource("2_hvua5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7b7a"]
+resource_local_to_scene = true
+shader = ExtResource("3_v6lvp")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[node name="Rato" type="Node2D" unique_id=1445645633]
+script = ExtResource("1_rs4v3")
+selections = Dictionary[Vector2i, PackedVector2Array]({
+Vector2i(-2, -1): PackedVector2Array(),
+Vector2i(-2, 1): PackedVector2Array(),
+Vector2i(-1, -2): PackedVector2Array(),
+Vector2i(-1, 2): PackedVector2Array(),
+Vector2i(1, -2): PackedVector2Array(),
+Vector2i(1, 2): PackedVector2Array(),
+Vector2i(2, -1): PackedVector2Array(),
+Vector2i(2, 1): PackedVector2Array()
+})
+health = SubResource("Resource_8j4qm")
+star_diagonal_mode = 0
+star_jumping_enabled = true
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1361230251]
+material = SubResource("ShaderMaterial_g7b7a")
+texture = ExtResource("4_yr6c5")
+region_enabled = true
+region_rect = Rect2(64, 176, 16, 16)
+
+[node name="HitParticles" parent="Sprite" unique_id=1395685859 instance=ExtResource("5_wit1p")]
+
+[node name="Moves" type="Node2D" parent="." unique_id=1156299254]
+z_index = -1
+script = ExtResource("6_8j4qm")
+metadata/_custom_type_script = "uid://ch6i38siienyw"

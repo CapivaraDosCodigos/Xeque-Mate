@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bpaps2v57aiiv"]
+
+[ext_resource type="Shader" uid="uid://bpvggmbilwipa" path="res://Common/TextureSave/Shaders/shader_not_color.gdshader" id="1_24cpg"]
+
+[resource]
+shader = ExtResource("1_24cpg")
+shader_parameter/color = Color(0.16862746, 0.14117648, 0.25490198, 1)

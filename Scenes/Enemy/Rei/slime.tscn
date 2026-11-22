@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ctrmwmexfd6vn"]
+
+[ext_resource type="Script" uid="uid://cwwhfvmt3mcne" path="res://Scenes/Enemy/enemy.gd" id="1_nk86l"]
+[ext_resource type="Script" uid="uid://duh573wqosmss" path="res://Common/Component/health_component.gd" id="2_vnyk3"]
+[ext_resource type="Shader" uid="uid://u5bm25vhygf7" path="res://Assets/Blink.gdshader" id="3_ubebq"]
+[ext_resource type="Texture2D" uid="uid://bxjj2rxli13jt" path="res://Assets/Tilemap Dungeon/OKLab (2).png" id="3_vnyk3"]
+[ext_resource type="PackedScene" uid="uid://b2axhfsqt1yqm" path="res://Common/HitParticles/hit_particles.tscn" id="5_opai4"]
+[ext_resource type="Script" uid="uid://ch6i38siienyw" path="res://Common/CanvasDrawing/desenhador.gd" id="6_d5urt"]
+
+[sub_resource type="Resource" id="Resource_d5urt"]
+script = ExtResource("2_vnyk3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7b7a"]
+resource_local_to_scene = true
+shader = ExtResource("3_ubebq")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[node name="Slime" type="Node2D" unique_id=1445645633]
+script = ExtResource("1_nk86l")
+selections = Dictionary[Vector2i, PackedVector2Array]({
+Vector2i(-1, -1): PackedVector2Array(-1, 0, 0, -1),
+Vector2i(-1, 0): PackedVector2Array(),
+Vector2i(-1, 1): PackedVector2Array(-1, 0, 0, 1),
+Vector2i(0, -1): PackedVector2Array(),
+Vector2i(0, 1): PackedVector2Array(),
+Vector2i(1, -1): PackedVector2Array(1, 0, 0, -1),
+Vector2i(1, 0): PackedVector2Array(),
+Vector2i(1, 1): PackedVector2Array(0, 1, 1, 0)
+})
+health = SubResource("Resource_d5urt")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1361230251]
+material = SubResource("ShaderMaterial_g7b7a")
+texture = ExtResource("3_vnyk3")
+region_enabled = true
+region_rect = Rect2(0, 160, 16, 16)
+
+[node name="HitParticles" parent="Sprite" unique_id=1395685859 instance=ExtResource("5_opai4")]
+
+[node name="Moves" type="Node2D" parent="." unique_id=408655477]
+z_index = -1
+script = ExtResource("6_d5urt")
+metadata/_custom_type_script = "uid://ch6i38siienyw"

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://d614wdptnnvh"]
+
+[ext_resource type="Script" uid="uid://ba63st86ncw4g" path="res://Common/TextureSave/texture_save.gd" id="1_e4apo"]
+[ext_resource type="Shader" uid="uid://cxgkclgjyki6c" path="res://Common/TextureSave/Shaders/palette_match.gdshader" id="2_8o8r0"]
+[ext_resource type="Texture2D" uid="uid://diywqpbfbr7jf" path="res://Assets/Tilemap Dungeon/tilemap_packed.png" id="2_wjflo"]
+[ext_resource type="Texture2D" uid="uid://kcrgtq0qyo2p" path="res://Common/TextureSave/undernight-20-1x.png" id="3_8o8r0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mbo3"]
+shader = ExtResource("2_8o8r0")
+shader_parameter/palette = ExtResource("3_8o8r0")
+shader_parameter/match_mode = 1
+shader_parameter/input_is_srgb = false
+shader_parameter/lightness_weight = 1.0
+shader_parameter/lch_weights = Vector3(1, 1, 1)
+shader_parameter/luma_weight = 1.0
+
+[node name="TextureSave" type="SubViewportContainer" unique_id=254220504]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4apo")
+pasta_saida = "res://Assets"
+nome_arquivo = "TileBranco"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2010357918]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(192, 176)
+render_target_update_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport" unique_id=616957267]
+material = SubResource("ShaderMaterial_4mbo3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wjflo")
+stretch_mode = 4

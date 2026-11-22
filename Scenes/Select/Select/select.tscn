@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cf3g6glncgoh7"]
+
+[ext_resource type="Texture2D" uid="uid://r8sanljkd65h" path="res://Scenes/Select/Select/select.tres" id="1_emayi"]
+[ext_resource type="Script" uid="uid://oxvfh1yjkfm5" path="res://Scenes/Select/Select/select.gd" id="2_4vv1f"]
+
+[node name="Select" type="Sprite2D" unique_id=1163081940]
+self_modulate = Color(1, 0.99607843, 0.9764706, 1)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("1_emayi")
+script = ExtResource("2_4vv1f")
+metadata/_custom_type_script = "uid://oxvfh1yjkfm5"

@@ -1,0 +1,4 @@
+
+palette = undernight-20-1x.png
+match_mode = OKLab
+input_is_srgb = false

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://qbinf4bs82e2"]
+
+[ext_resource type="Script" uid="uid://furwov6xd5bq" path="res://autoload/Global/global.gd" id="1_yqhgw"]
+[ext_resource type="Theme" uid="uid://df8cewki5vs0b" path="res://Assets/Themes/game_theme.tres" id="2_euhx6"]
+
+[node name="Global" type="Node" unique_id=1534578944]
+script = ExtResource("1_yqhgw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1591455702]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1559778581]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 192
+theme_override_constants/margin_right = 512
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="CanvasLayer/MarginContainer" unique_id=1643056325]
+layout_mode = 2
+theme = ExtResource("2_euhx6")
+joystick_size = 80.0
+tip_size = 40.0

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://6ncyi6jduw7v"]
+
+[ext_resource type="Script" uid="uid://daxs6lw234m2a" path="res://Scenes/Player/player.gd" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://duh573wqosmss" path="res://Common/Component/health_component.gd" id="2_fkybt"]
+[ext_resource type="Shader" uid="uid://u5bm25vhygf7" path="res://Assets/Blink.gdshader" id="3_htcer"]
+[ext_resource type="Texture2D" uid="uid://bxjj2rxli13jt" path="res://Assets/Tilemap Dungeon/OKLab (2).png" id="4_htcer"]
+[ext_resource type="PackedScene" uid="uid://cdsl2cd2a2n2h" path="res://Scenes/Items/Torre/marreta.tscn" id="5_0u5uq"]
+[ext_resource type="Script" uid="uid://0eodkwvr06tf" path="res://Common/SimpleCamera/simple_camera.gd" id="6_dd0ac"]
+[ext_resource type="PackedScene" uid="uid://b2axhfsqt1yqm" path="res://Common/HitParticles/hit_particles.tscn" id="7_0u5uq"]
+
+[sub_resource type="Resource" id="Resource_pf1kg"]
+resource_local_to_scene = true
+script = ExtResource("2_fkybt")
+max_value = 800
+metadata/_custom_type_script = "uid://duh573wqosmss"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd0ac"]
+resource_local_to_scene = true
+shader = ExtResource("3_htcer")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[node name="Player" type="Node2D" unique_id=161877672]
+script = ExtResource("2_cvnsp")
+health = SubResource("Resource_pf1kg")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=765804345]
+material = SubResource("ShaderMaterial_dd0ac")
+texture = ExtResource("4_htcer")
+region_enabled = true
+region_rect = Rect2(0, 144, 16, 16)
+
+[node name="Marreta" parent="Sprite" unique_id=400072179 instance=ExtResource("5_0u5uq")]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1288160552]
+ignore_rotation = false
+zoom = Vector2(1.5, 1.5)
+limit_left = -304
+limit_top = -304
+limit_right = 304
+limit_bottom = 304
+editor_draw_limits = true
+script = ExtResource("6_dd0ac")
+metadata/_custom_type_script = "uid://0eodkwvr06tf"
+
+[node name="HitParticles" parent="." unique_id=1395685859 instance=ExtResource("7_0u5uq")]

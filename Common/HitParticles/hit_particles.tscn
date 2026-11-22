@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b2axhfsqt1yqm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jlvik"]
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+color = Color(1, 0.99607843, 0.9764706, 1)
+
+[node name="HitParticles" type="GPUParticles2D" unique_id=1395685859]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jlvik")

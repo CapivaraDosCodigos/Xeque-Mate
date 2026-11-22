@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d38nmfsayk3tx"]
+
+[ext_resource type="Script" uid="uid://8mstdcqk6iwb" path="res://Scenes/Items/Item.gd" id="1_51v3m"]
+[ext_resource type="Material" uid="uid://bpaps2v57aiiv" path="res://Assets/Shader Material/material_not_outine.tres" id="2_ai23r"]
+[ext_resource type="Texture2D" uid="uid://bxjj2rxli13jt" path="res://Assets/Tilemap Dungeon/OKLab (2).png" id="3_51v3m"]
+
+[node name="SwordLong" type="Node2D" unique_id=400072179]
+use_parent_material = true
+position = Vector2(0, 1)
+script = ExtResource("1_51v3m")
+selections = Dictionary[Vector2i, PackedVector2Array]({
+Vector2i(-2, -1): PackedVector2Array(),
+Vector2i(-2, 1): PackedVector2Array(),
+Vector2i(-1, -2): PackedVector2Array(),
+Vector2i(-1, 2): PackedVector2Array(),
+Vector2i(1, -2): PackedVector2Array(),
+Vector2i(1, 2): PackedVector2Array(),
+Vector2i(2, -1): PackedVector2Array(),
+Vector2i(2, 1): PackedVector2Array()
+})
+metadata/_custom_type_script = "uid://8mstdcqk6iwb"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=535526705]
+material = ExtResource("2_ai23r")
+position = Vector2(12, 0)
+rotation = 1.5707964
+texture = ExtResource("3_51v3m")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(128, 144, 16, 16)
+
+[node name="SpriteShadow" type="Sprite2D" parent="." unique_id=612008730]
+z_index = -1
+use_parent_material = true
+position = Vector2(12, 0)
+rotation = 1.5707964
+texture = ExtResource("3_51v3m")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(128, 144, 16, 16)
